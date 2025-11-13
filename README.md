@@ -230,12 +230,31 @@ To write a C program print the sum of the integers in the array.
 
 
 ## Program:
-//type your code here
+```
+#include <stdio.h>
+
+int main() {
+    int n;              // Step 1: Declare variable n
+    scanf("%d", &n);    // Step 2: Input n
+    
+    int a[n];           // Step 3: Declare array of size n
+    int sum = 0;        // Step 4: Initialize sum to 0
+    
+    // Step 5: Loop n times
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &a[i]);   // Step 6: Input each integer
+        sum += a[i];          // Add to sum
+    }
+    
+    printf("%d\n", sum);      // Step 7: Print final sum
+    
+    return 0;
+}
+
+```
 
 ## Output:
-//paste your output here
-
- 
+<img width="453" height="240" alt="image" src="https://github.com/user-attachments/assets/2e3ea956-9061-4834-aafd-2cc7303f91e5" />
 
 
 ## Result:
@@ -264,12 +283,44 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 ## Program:
-//type your code here
+```
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char sentence[1000];   // Step 1: Input sentence
+    int count = 0;         // Step 2: Initialize counter
+    int inWord = 0;        // Flag to track if we are inside a word
+
+    // Prompt and input
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+
+    // Step 3: Process each character
+    for (int i = 0; sentence[i] != '\0'; i++) {
+        if (!isspace(sentence[i]) && !ispunct(sentence[i])) {
+            // Non-space, non-punctuation character
+            if (inWord == 0) {
+                count++;       // New word starts
+                inWord = 1;    // We are inside a word
+            }
+        } else {
+            // Space or punctuation ends the word
+            inWord = 0;
+        }
+    }
+
+    // Step 5: Display result
+    printf("Number of words: %d\n", count);
+
+    return 0;
+}
+
+```
 
 ## Output:
-//paste your output here
-
-
+<img width="596" height="238" alt="image" src="https://github.com/user-attachments/assets/6d55d1c0-9b25-4cbc-8132-d66c9f5e6bb0" />
 
 ## Result:
 Thus, the program that counts the number of words in a given sentence is verified 
